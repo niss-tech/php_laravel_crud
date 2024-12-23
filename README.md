@@ -1,70 +1,130 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Projet Laravel - Gestion des étudiants (CRUD)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description
 
-## About Laravel
+Ce projet est une application web de gestion des étudiants développée avec **Laravel**, un framework PHP. Il permet de gérer les informations des étudiants (nom, prénom, classe) en offrant des fonctionnalités de création, consultation, modification et suppression des étudiants.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Fonctionnalités
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Ajouter un étudiant** : Permet d'ajouter un étudiant à la base de données.
+- **Afficher la liste des étudiants** : Affiche tous les étudiants enregistrés dans l'application.
+- **Modifier un étudiant** : Permet de modifier les informations d'un étudiant existant.
+- **Supprimer un étudiant** : Permet de supprimer un étudiant de la base de données.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Prérequis
 
-## Learning Laravel
+Avant de pouvoir exécuter le projet, assurez-vous d'avoir installé les outils suivants :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **PHP** (version 8.0 ou supérieure)
+- **Composer** (outil de gestion des dépendances PHP)
+- **Laravel** (framework PHP)
+- **MySQL** ou une autre base de données compatible avec Laravel
+- **Git** (pour le contrôle de version)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Étape 1 : Cloner le dépôt
 
-## Laravel Sponsors
+Commencez par cloner ce projet depuis GitHub :
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone https://github.com/niss-tech/php_laravel_crud.git
+```
 
-### Premium Partners
+### Étape 2 : Installer les dépendances
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Une fois le projet cloné, naviguez dans le répertoire du projet et installez les dépendances via Composer :
 
-## Contributing
+```bash
+cd php_laravel_crud
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Étape 3 : Configurer l'environnement
 
-## Code of Conduct
+Copiez le fichier `.env.example` pour créer un fichier `.env` :
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Modifiez le fichier `.env` pour configurer votre base de données. Par exemple, si vous utilisez MySQL :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```ini
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nom_de_votre_base_de_donnees
+DB_USERNAME=votre_utilisateur
+DB_PASSWORD=Votre_Mot_De_Passe
+```
+
+### Étape 4 : Générer la clé de l'application
+
+Exécutez la commande suivante pour générer la clé de l'application Laravel :
+
+```bash
+php artisan key:generate
+```
+
+### Étape 5 : Exécuter les migrations
+
+Créez les tables nécessaires dans votre base de données en exécutant les migrations Laravel :
+
+```bash
+php artisan migrate
+```
+
+### Étape 6 : Démarrer le serveur
+
+Une fois les étapes précédentes terminées, vous pouvez démarrer le serveur Laravel en local :
+
+```bash
+php artisan serve
+```
+
+L'application sera accessible à l'adresse : [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+## Structure du projet
+
+- **Routes** : Les routes sont définies dans le fichier `routes/web.php`. Elles mènent vers les actions du contrôleur `EtudiantController`.
+- **Contrôleur** : Le contrôleur `EtudiantController` est responsable de la gestion des étudiants, y compris l'affichage, l'ajout, la modification et la suppression.
+- **Modèle** : Le modèle `Etudiant` représente les données des étudiants dans la base de données.
+- **Vues** : Les vues se trouvent dans le dossier `resources/views/etudiant`. Vous trouverez les vues pour afficher la liste des étudiants, ajouter un étudiant et mettre à jour les informations d'un étudiant.
+
+## Routes disponibles
+
+Voici les principales routes de l'application :
+
+- **`/`** : Page d'accueil
+- **`/etudiant`** : Liste des étudiants
+- **`/ajouter`** : Formulaire d'ajout d'un étudiant
+- **`/ajouter/traitement`** : Traitement du formulaire pour ajouter un étudiant
+- **`/delete-etudiant/{id}`** : Supprimer un étudiant avec un identifiant spécifique
+- **`/update-etudiant/{id}`** : Formulaire pour modifier un étudiant avec un identifiant spécifique
+- **`/update/traitement`** : Traitement du formulaire pour mettre à jour les informations d'un étudiant
+
+## Routes détaillées
+
+- **Route `GET /`** : Affiche la page d'accueil.
+- **Route `GET /etudiant`** : Affiche la liste des étudiants.
+- **Route `GET /ajouter`** : Affiche le formulaire pour ajouter un étudiant.
+- **Route `POST /ajouter/traitement`** : Traite les données du formulaire et ajoute un étudiant à la base de données.
+- **Route `GET /delete-etudiant/{id}`** : Supprime un étudiant en fonction de son ID.
+- **Route `GET /update-etudiant/{id}`** : Affiche le formulaire pour modifier un étudiant avec l'ID spécifié.
+- **Route `POST /update/traitement`** : Traite le formulaire de mise à jour d'un étudiant.
+
+## Contribution
+
+Si vous souhaitez contribuer à ce projet, vous pouvez :
+
+1. Forker le projet
+2. Créer une branche pour vos modifications (`git checkout -b feature/nouvelle-fonctionnalite`)
+3. Commiter vos changements (`git commit -am 'Ajout de nouvelle fonctionnalité'`)
+4. Pousser vos modifications vers votre fork (`git push origin feature/nouvelle-fonctionnalite`)
+5. Créer une Pull Request pour fusionner vos modifications
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# php_laravel_crud
->>>>>>> 9f348ee7cf4c4cdd34503934f0176ebe55bd4cc2
+Ce projet est sous la licence [MIT](https://opensource.org/licenses/MIT).
+
